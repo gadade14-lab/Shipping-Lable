@@ -179,7 +179,7 @@
         .shipping-label {
             background: #ffffff;
             border: 2px dashed #000000;
-            padding: 10px;
+            padding: 10px 10px 0px 10px; /* नीचे पैडिंग 0 ताकि पैच किनारों से चिपक जाए */
             border-radius: 6px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             display: flex;
@@ -188,6 +188,7 @@
             height: auto; 
             min-height: unset; 
             color: #000000; 
+            overflow: hidden;
         }
 
         .label-header { 
@@ -207,14 +208,12 @@
             width: 100%;
         }
 
-        /* Customer Name Block with clean bottom boundary */
         .customer-section {
             border-bottom: 2px solid #000000;
             padding-bottom: 4px;
             margin-bottom: 4px;
         }
 
-        /* एड्रेस एरिया की दो बॉर्डर लाइन्स के बीच का कंटेनर */
         .address-split-container {
             display: flex;
             justify-content: space-between;
@@ -228,7 +227,6 @@
             flex-direction: column;
         }
 
-        /* बड़ा लोकेशन नाम जो दाहिनी तरफ रहेगा और एड्रेस सेक्शन के वर्टिकल सेंटर में आएगा */
         .destination-right-block {
             font-size: 46px;
             font-weight: 950;
@@ -261,7 +259,6 @@
         
         .pincode-box .field-value { font-size: 18px; font-weight: 900; letter-spacing: 1px; text-align: center; }
         
-        /* मोबाइल नंबर वाले बॉक्स को बड़ा, बोल्ड और फुल फिट करने के लिए स्टाइल */
         .phone-box .field-value { 
             font-size: 20px; 
             font-weight: 950; 
@@ -272,7 +269,18 @@
             padding: 2px 0;
         }
 
-        .label-footer { margin-top: 5px; border-top: 2px solid #000; padding-top: 4px; font-size: 10.5px; line-height: 1.2; color: #111; }
+        /* प्रेषक (From) एरिया के लिए नया ब्लैक पैच स्टाइल */
+        .label-footer { 
+            margin-top: 6px; 
+            background-color: #000000; 
+            color: #ffffff; 
+            padding: 6px 10px; 
+            font-size: 11px; 
+            line-height: 1.3; 
+            margin-left: -10px; 
+            margin-right: -10px; 
+            border-top: 2px solid #000000;
+        }
 
         /* ==========================================
            100% PERFECT A4 GRID PRINT CSS
@@ -303,6 +311,7 @@
             }
             
             .data-box { background: #ffffff !important; border: 1px solid #000000 !important; }
+            .label-footer { background-color: #000000 !important; color: #ffffff !important; -webkit-print-color-adjust: exact; }
         }
     </style>
 </head>
