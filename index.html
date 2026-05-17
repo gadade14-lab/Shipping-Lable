@@ -1,691 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> SHIPPING LABEL</title>
-    <style>
-        /* ==========================================
-           PREMIUM ELITE LIGHT INTERFACE (UI)
-           ========================================== */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 25px;
-            background-color: #f4f6f9; 
-            color: #1e293b;
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HI-TECH SHIPPING LABEL</title>
 
-        .header-area { 
-            max-width: 900px; 
-            margin: 0 auto 15px auto; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 15px;
-        }
-        
-        h2 { 
-            margin: 0; 
-            color: #0f172a; 
-            font-size: 26px; 
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
+<style>
 
-        .control-panel {
-            background: #ffffff;
-            max-width: 900px;
-            margin: 0 auto 25px auto;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.05);
-            border: 2px solid #bae6fd; 
-            border-top: 6px solid #0284c7;
-        }
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    padding:20px;
+    background:#f4f6f9;
+}
 
-        .search-container {
-            background: #fffbeb;
-            max-width: 900px;
-            margin: 25px auto;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(234, 179, 8, 0.05);
-            border: 2px dashed #fef08a; 
-            box-sizing: border-box;
-        }
+.header-area{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
 
-        .history-panel {
-            background: #ffffff;
-            max-width: 900px;
-            margin: 0 auto 25px auto;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.05);
-            border: 2px solid #a7f3d0; 
-            border-top: 6px solid #10b981;
-        }
+h2{
+    margin:0;
+}
 
-        .setup-panel { 
-            background: #f8fafc; 
-            max-width: 900px;
-            margin: 0 auto 25px auto;
-            padding: 25px;
-            border-radius: 16px;
-            border: 2px solid #cbd5e1;
-            border-top: 6px solid #64748b; 
-        }
+.control-panel,
+.history-panel,
+.setup-panel{
+    background:#fff;
+    max-width:900px;
+    margin:0 auto 20px auto;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
 
-        .section-title { 
-            font-size: 16px; 
-            font-weight: 800; 
-            color: #1e293b; 
-            text-transform: uppercase; 
-            margin: 0 0 20px 0; 
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .row { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
-        .col { flex: 1; min-width: 220px; display: flex; flex-direction: column; }
-        
-        label { 
-            font-size: 13px; 
-            font-weight: 700; 
-            margin-bottom: 8px; 
-            color: #475569; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        input, textarea { 
-            padding: 14px; 
-            border: 1px solid #cbd5e1; 
-            border-radius: 10px; 
-            font-size: 16px; 
-            font-weight: 600;
-            outline: none; 
-            background-color: #ffffff; 
-            color: #0f172a;
-            transition: all 0.2s ease;
-        }
-        
-        input:focus, textarea:focus { 
-            border-color: #0284c7; 
-            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
-        }
-        
-        .search-input { 
-            width: 100%; 
-            padding: 14px; 
-            border: 1px solid #f59e0b; 
-            border-radius: 10px; 
-            font-size: 18px; 
-            font-weight: 700; 
-            background-color: #ffffff;
-            color: #b45309;
-        }
+.section-title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
 
-        .btn-group { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        button { 
-            padding: 14px 28px; 
-            border: none; 
-            border-radius: 10px; 
-            font-size: 14px; 
-            font-weight: 800; 
-            cursor: pointer; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.15s ease; 
-        }
-        button:hover { transform: translateY(-1px); opacity: 0.95; }
-        
-        .btn-primary { background-color: #0284c7; color: #ffffff; }
-        .btn-success { background-color: #10b981; color: #fff; }
-        .btn-danger { background-color: #ef4444; color: #fff; }
-        .btn-settings { background-color: #ffffff; color: #475569; padding: 10px 16px; font-size: 13px; border-radius: 8px; border: 1px solid #cbd5e1; font-weight: 700; }
-        
-        .btn-edit { background-color: #fef3c7; color: #92400e; padding: 7px 14px; font-size: 13px; border-radius: 6px; border: 1px solid #fde68a; font-weight: bold; cursor: pointer; }
-        .btn-delete { background-color: #fee2e2; color: #991b1b; padding: 7px 14px; font-size: 13px; border-radius: 6px; border: 1px solid #fca5a5; font-weight: bold; cursor: pointer; margin-left: 5px; }
+.row{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
 
-        .history-table-wrapper { max-height: 250px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 10px; margin-top: 15px; }
-        table { width: 100%; border-collapse: collapse; font-size: 15px; text-align: left; background-color: #ffffff; }
-        th, td { padding: 14px; border-bottom: 1px solid #e2e8f0; color: #334155; }
-        th { background-color: #f8fafc; color: #10b981; font-weight: 800; position: sticky; top: 0; z-index: 10; border-bottom: 2px solid #10b981; }
+.col{
+    flex:1;
+    min-width:200px;
+    display:flex;
+    flex-direction:column;
+}
 
-        #printAreaContainer { display: none; }
+label{
+    font-size:13px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
 
-        .shipping-label {
-            background: #ffffff; border: 2px dashed #000000; padding: 10px 10px 0px 10px; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; box-sizing: border-box; height: auto; min-height: unset; color: #000000; overflow: hidden;
-        }
+input,textarea{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+}
 
-        .label-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 4px; margin-bottom: 4px; }
-        .label-header .title { font-size: 18px; font-weight: 900; text-transform: uppercase; }
-        .label-header .box-count-badge { background: #000000; color: #ffffff; padding: 2px 5px; font-size: 11px; font-weight: 900; border-radius: 4px; }
+button{
+    padding:12px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
 
-        .label-body { margin-top: 0px; padding-top: 0px; width: 100%; }
-        .customer-section { border-bottom: 2px solid #000000; padding-bottom: 4px; margin-bottom: 4px; }
-        .address-split-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .address-left-block { width: 55%; display: flex; flex-direction: column; }
+.btn-primary{
+    background:#0284c7;
+    color:#fff;
+}
 
-        .destination-right-block {
-            font-size: clamp(10px, 4vw, 15px); font-weight: 650; color: #000000; line-height: 1; padding-left: 5px; display: flex; align-items: center; justify-content: flex-end; text-align: center; max-width: 40%;
-        }
+.btn-success{
+    background:#10b981;
+    color:#fff;
+}
 
-        .field-group { width: 100%; margin-bottom: 5px; }
-        .field-label { font-size: 8.5px; text-transform: uppercase; color: #475569; font-weight: 700; }
-        .field-value { font-size: 14px; color: #000; font-weight: 500; }
-        .cust-name { font-size: 15px; font-weight: 800; color: #000; }
+.btn-danger{
+    background:#ef4444;
+    color:#fff;
+}
 
-        .important-data { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border-top: 2px solid #000; padding-top: 6px; margin-top: 4px; }
-        .data-box { background: #f8fafc; border: 1px solid #000; padding: 5px; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; }
-        .pincode-box .field-value { font-size: 18px; font-weight: 900; text-align: center; }
-        .phone-box .field-value { font-size: 20px; font-weight: 950; text-align: center; }
+.btn-edit{
+    background:#f59e0b;
+    color:#fff;
+    padding:8px 10px;
+}
 
-        .label-footer { margin-top: 6px; background-color: #000000; color: #ffffff; padding: 6px 10px; font-size: 11px; margin-left: -10px; margin-right: -10px; border-top: 2px solid #000000; }
+.btn-print{
+    background:#0284c7;
+    color:#fff;
+    padding:8px 10px;
+}
 
-        /* ==========================================
-           HARDWARE & TIME VALIDITY SYSTEM LOCK STYLES
-           ========================================== */
-        .lock-hidden { display: none !important; }
-        .lock-screen { max-width: 420px; margin: 80px auto; background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; border: 2px solid #bae6fd; border-top: 6px solid #0284c7; font-family: sans-serif; }
-        .lock-screen h2 { color: #0f172a; font-size: 24px; margin-bottom: 8px; font-weight: 800; }
-        .lock-screen p { color: #475569; font-size: 14px; margin-bottom: 20px; line-height: 1.4; }
-        .lock-screen input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-        .lock-screen button { width: 100%; padding: 12px; background: #0284c7; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; }
-        .lock-screen .err { color: #ef4444; font-size: 13px; margin-top: 10px; font-weight: bold; }
+.search-container{
+    margin-top:20px;
+}
 
-        @media print {
-            .control-panel, .history-panel, .search-container, .btn-group, h2, label, input, textarea, .setup-panel, .header-area, .lock-screen { display: none !important; }
-            body { padding: 0 !important; margin: 0 !important; background: #ffffff !important; }
-            #printAreaContainer { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; width: 100% !important; padding: 10px !important; box-sizing: border-box !important; }
-            .shipping-label { display: flex !important; border: 2px solid #000000 !important; page-break-inside: avoid !important; height: auto !important; }
-            .data-box { background: #ffffff !important; border: 1px solid #000000 !important; }
-            .label-footer { background-color: #000000 !important; color: #ffffff !important; }
-        }
-    </style>
+.search-input{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.history-table-wrapper{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:left;
+}
+
+th{
+    background:#10b981;
+    color:#fff;
+}
+
+#printAreaContainer{
+    display:none;
+}
+
+.shipping-label{
+    border:2px solid #000;
+    padding:10px;
+    background:#fff;
+    box-sizing:border-box;
+    width:100%;
+}
+
+.label-header{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:2px solid #000;
+    padding-bottom:5px;
+    margin-bottom:5px;
+}
+
+.title{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.box-count-badge{
+    background:#000;
+    color:#fff;
+    padding:3px 8px;
+    border-radius:4px;
+}
+
+.customer-section{
+    margin-bottom:10px;
+}
+
+.important-data{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.data-box{
+    border:1px solid #000;
+    padding:8px;
+}
+
+.label-footer{
+    margin-top:10px;
+    background:#000;
+    color:#fff;
+    padding:8px;
+    font-size:12px;
+}
+
+@media print{
+
+body{
+    margin:0 !important;
+    padding:5mm !important;
+    background:#fff !important;
+}
+
+.control-panel,
+.history-panel,
+.setup-panel,
+.header-area{
+    display:none !important;
+}
+
+#printAreaContainer{
+    display:grid !important;
+    grid-template-columns:repeat(2,48%) !important;
+    gap:8px !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+}
+
+.shipping-label{
+    width:100% !important;
+    max-width:100% !important;
+    page-break-inside:avoid !important;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- 1. FIRST TIME REGISTERING WIZARD -->
-    <div id="lockSetup" class="lock-screen lock-hidden">
-        <h2>Admin PC Setup</h2>
-        <p>Is computer par activation setup lagayein.<br><span style="color:red; font-weight:bold;">Activation Key format: EXP-YYYYMMDD</span></p>
-        <input type="text" id="setUid" placeholder="Create User ID">
-        <input type="password" id="setPwd" placeholder="Create Access Password">
-        <input type="text" id="setLic" placeholder="Enter Activation Key (e.g. EXP-20270516)">
-        <button onclick="setupMyPC()">Lock Software & Verify Key</button>
-    </div>
+<div class="header-area">
+<h2>HI-TECH SHIPPING LABEL</h2>
+<button class="btn-primary" onclick="toggleSetupPanel()">⚙️ Settings</button>
+</div>
 
-    <!-- 2. SYSTEM LOGIN SCREEN -->
-    <div id="lockLogin" class="lock-screen lock-hidden">
-        <h2>System Login</h2>
-        <p>Shipping system locked hai. Chalaney ke liye login karein.<br><span id="daysDisplay" style="color: green; font-weight: bold;"></span></p>
-        <input type="text" id="logUid" placeholder="Enter User ID">
-        <input type="password" id="logPwd" placeholder="Enter Password">
-        <button onclick="loginMyPC()">Verify & Login</button>
-        <div id="logErr" class="err"></div>
-    </div>
+<div class="setup-panel" id="setupPanel" style="display:none;">
 
-    <!-- 3. EXPIRY & ANTI-DUPLICATE WALL -->
-    <div id="lockBlocked" class="lock-screen lock-hidden" style="border-color: #fca5a5; border-top-color: #ef4444;">
-        <h2 id="blockTitle" style="color: #ef4444;">Access Blocked</h2>
-        <p id="blockDesc" style="font-weight: bold; color: #1e293b;">License Mismatch or Hardware Profile Change Detected.</p>
-        <p style="font-size: 12px; color: #64748b;">Aap is error ko hatane ke liye Master Reset password daal sakte hain ya owner se contact karein.</p>
-    </div>
+<div class="section-title">Sender Setup</div>
 
-    <!-- APP ROOT MASTER BLOCK -->
-    <div id="shippingSystemMaster" class="lock-hidden">
-        <div class="header-area">
-            <h2>HI-TECH SHIPPING LABEL</h2>
-            <button class="btn-settings" onclick="toggleSetupPanel()">⚙️ Settings</button>
+<div class="row">
+
+<div class="col">
+<label>Company Name</label>
+<input type="text" id="fromName">
+</div>
+
+<div class="col">
+<label>Phone</label>
+<input type="text" id="fromPhone">
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col">
+<label>Address</label>
+<textarea id="fromAddress"></textarea>
+</div>
+
+</div>
+
+<button class="btn-success" onclick="saveSenderInfo()">Save Settings</button>
+
+</div>
+
+<div class="control-panel">
+
+<div class="section-title">Customer Entry Form</div>
+
+<div class="row">
+
+<div class="col">
+<label>Customer Name</label>
+<input type="text" id="toName">
+</div>
+
+<div class="col">
+<label>Phone</label>
+<input type="text" id="toPhone">
+</div>
+
+<div class="col">
+<label>Boxes</label>
+<input type="number" id="toBoxes" value="1">
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col">
+<label>Address</label>
+<input type="text" id="toAddress">
+</div>
+
+<div class="col">
+<label>Location</label>
+<input type="text" id="toShortLocation">
+</div>
+
+<div class="col">
+<label>Pincode</label>
+<input type="text" id="toPincode">
+</div>
+
+</div>
+
+<button class="btn-success" onclick="saveCustomerData()">Save Party</button>
+
+<button class="btn-primary" onclick="executeCurrentPrint()">
+Print Current Label
+</button>
+
+<div class="search-container">
+
+<input type="text"
+id="searchBox"
+class="search-input"
+placeholder="Search Customer..."
+oninput="handleLiveSearchAndAutofill()">
+
+</div>
+
+</div>
+
+<div class="history-panel">
+
+<div class="section-title">Customer History</div>
+
+<div class="history-table-wrapper">
+
+<table>
+
+<thead>
+<tr>
+<th>Sr</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Address</th>
+<th>Boxes</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody id="historyTableBody"></tbody>
+
+</table>
+
+</div>
+</div>
+
+<div id="printAreaContainer"></div>
+<script>
+
+window.onload=function(){
+    loadSenderInfo();
+    loadHistoryTable();
+};
+
+function toggleSetupPanel(){
+
+    const panel=document.getElementById('setupPanel');
+
+    panel.style.display=
+    panel.style.display==='none'
+    ?'block'
+    :'none';
+}
+
+function saveSenderInfo(){
+
+    localStorage.setItem(
+        'ship_fromName',
+        document.getElementById('fromName').value
+    );
+
+    localStorage.setItem(
+        'ship_fromPhone',
+        document.getElementById('fromPhone').value
+    );
+
+    localStorage.setItem(
+        'ship_fromAddress',
+        document.getElementById('fromAddress').value
+    );
+
+    alert('Settings Saved');
+}
+
+function loadSenderInfo(){
+
+    document.getElementById('fromName').value=
+    localStorage.getItem('ship_fromName')||'';
+
+    document.getElementById('fromPhone').value=
+    localStorage.getItem('ship_fromPhone')||'';
+
+    document.getElementById('fromAddress').value=
+    localStorage.getItem('ship_fromAddress')||'';
+}
+
+function getDatabase(){
+
+    return JSON.parse(
+        localStorage.getItem('shipping_db')
+    ) || [];
+}
+
+function saveDatabase(db){
+
+    localStorage.setItem(
+        'shipping_db',
+        JSON.stringify(db)
+    );
+}
+
+function saveCustomerData(){
+
+    const data={
+
+        name:document.getElementById('toName').value,
+
+        phone:document.getElementById('toPhone').value,
+
+        boxes:document.getElementById('toBoxes').value,
+
+        address:document.getElementById('toAddress').value,
+
+        locationName:document.getElementById('toShortLocation').value,
+
+        pincode:document.getElementById('toPincode').value
+    };
+
+    let db=getDatabase();
+
+    db.push(data);
+
+    saveDatabase(db);
+
+    loadHistoryTable();
+
+    document.getElementById('toName').value='';
+    document.getElementById('toPhone').value='';
+    document.getElementById('toBoxes').value='1';
+    document.getElementById('toAddress').value='';
+    document.getElementById('toShortLocation').value='';
+    document.getElementById('toPincode').value='';
+
+    alert('Customer Saved');
+}
+
+function loadHistoryTable(){
+
+    const db=getDatabase();
+
+    const tbody=document.getElementById(
+        'historyTableBody'
+    );
+
+    tbody.innerHTML='';
+
+    db.forEach((item,index)=>{
+
+        const tr=document.createElement('tr');
+
+        tr.innerHTML=`
+
+        <td>${index+1}</td>
+
+        <td>${item.name}</td>
+
+        <td>${item.phone}</td>
+
+        <td>${item.address}</td>
+
+        <td>${item.boxes}</td>
+
+        <td>
+
+            <button
+            class="btn-edit"
+            onclick="fillCustomer(${index})">
+            Edit
+            </button>
+
+            <button
+            class="btn-print"
+            onclick="printHistoryLabel(${index})">
+            Print
+            </button>
+
+            <button
+            class="btn-danger"
+            onclick="deleteRecord(${index})">
+            Delete
+            </button>
+
+        </td>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+
+function fillCustomer(index){
+
+    const item=getDatabase()[index];
+
+    document.getElementById('toName').value=item.name;
+
+    document.getElementById('toPhone').value=item.phone;
+
+    document.getElementById('toBoxes').value=item.boxes;
+
+    document.getElementById('toAddress').value=item.address;
+
+    document.getElementById('toShortLocation').value=
+    item.locationName;
+
+    document.getElementById('toPincode').value=
+    item.pincode;
+}
+
+function deleteRecord(index){
+
+    let db=getDatabase();
+
+    db.splice(index,1);
+
+    saveDatabase(db);
+
+    loadHistoryTable();
+}
+
+function handleLiveSearchAndAutofill(){
+
+    const query=document
+    .getElementById('searchBox')
+    .value
+    .toLowerCase();
+
+    const db=getDatabase();
+
+    const match=db.find(item=>
+
+        item.name.toLowerCase().includes(query)
+
+        ||
+
+        item.phone.includes(query)
+    );
+
+    if(match){
+
+        document.getElementById('toName').value=
+        match.name;
+
+        document.getElementById('toPhone').value=
+        match.phone;
+
+        document.getElementById('toBoxes').value=
+        match.boxes;
+
+        document.getElementById('toAddress').value=
+        match.address;
+
+        document.getElementById('toShortLocation').value=
+        match.locationName;
+
+        document.getElementById('toPincode').value=
+        match.pincode;
+    }
+}
+
+function executeCurrentPrint(){
+
+    const data={
+
+        name:document.getElementById('toName').value,
+
+        phone:document.getElementById('toPhone').value,
+
+        boxes:document.getElementById('toBoxes').value,
+
+        address:document.getElementById('toAddress').value,
+
+        locationName:document.getElementById('toShortLocation').value,
+
+        pincode:document.getElementById('toPincode').value
+    };
+
+    generatePrint(data);
+}
+
+function printHistoryLabel(index){
+
+    const db=getDatabase();
+
+    generatePrint(db[index]);
+}
+
+function generatePrint(data){
+
+    const printContainer=
+    document.getElementById(
+        'printAreaContainer'
+    );
+
+    printContainer.innerHTML='';
+
+    const fName=
+    localStorage.getItem('ship_fromName')||'';
+
+    const fPhone=
+    localStorage.getItem('ship_fromPhone')||'';
+
+    const fAddr=
+    localStorage.getItem('ship_fromAddress')||'';
+
+    for(let i=1;i<=data.boxes;i++){
+
+        const label=document.createElement('div');
+
+        label.className='shipping-label';
+
+        label.innerHTML=`
+
+        <div class="label-header">
+
+            <div class="title">
+            SHIPPING LABEL
+            </div>
+
+            <div class="box-count-badge">
+            BOX ${i}/${data.boxes}
+            </div>
+
         </div>
-        <!-- SENDER REGISTRATION PANEL -->
-        <div class="setup-panel" id="setupPanel" style="display:none;">
-            <div class="section-title">⚙️ Sender Setup & Security PIN</div>
-            <div class="row">
-                <div class="col" style="flex: 2;">
-                    <label>Company/Sender Name</label>
-                    <input type="text" id="fromName" placeholder="Your business name">
-                </div>
-                <div class="col">
-                    <label>Sender Contact No.</label>
-                    <input type="text" id="fromPhone" placeholder="Mobile number">
-                </div>
-                <div class="col" style="flex: 0.5; min-width: 120px;">
-                    <label>Set 4-Digit PIN</label>
-                    <input type="password" id="appSecurityPin" value="1234" maxlength="4">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label>Sender Full Address</label>
-                    <textarea id="fromAddress" rows="2" placeholder="Full shop/office address"></textarea>
-                </div>
-            </div>
-            <div><button class="btn-success" onclick="saveSenderInfo()">Save Settings</button></div>
+
+        <div class="customer-section">
+
+            <b>${data.name}</b>
+
+            <br><br>
+
+            ${data.address}
+
+            <br><br>
+
+            <b>${data.locationName}</b>
+
         </div>
 
-        <!-- MAIN CONTROL PANEL -->
-        <div class="control-panel">
-            <div class="section-title" id="formActionTitle" style="color: #0284c7;">🔹 Customer Entry Form</div>
-            <input type="hidden" id="editIndex" value="-1"> 
-            <div class="row">
-                <div class="col" style="flex: 2;">
-                    <label>Customer Name (पार्टी का नाम)</label>
-                    <input type="text" id="toName" placeholder="Customer Full Name">
-                </div>
-                <div class="col" style="flex: 1;">
-                    <label>Mobile Number (मोबाइल नं.)</label>
-                    <input type="text" id="toPhone" placeholder="Mobile Number">
-                </div>
-                <div class="col" style="flex: 0.5; min-width: 100px;">
-                    <label>Total Boxes</label>
-                    <input type="number" id="toBoxes" value="1" min="1">
-                </div>
+        <div class="important-data">
+
+            <div class="data-box">
+
+                <b>Pincode</b>
+
+                <br>
+
+                ${data.pincode}
+
             </div>
-            <div class="row">
-                <div class="col" style="flex: 2;">
-                    <label>Delivery Address (पूरा पता)</label>
-                    <input type="text" id="toAddress" placeholder="Shipping Address">
-                </div>
-                <div class="col" style="flex: 1;">
-                    <label>Office Delivery / Short Name (लोकेशन नाम)</label>
-                    <input type="text" id="toShortLocation" placeholder="e.g. Kolhapur (For Big Font)">
-                </div>
-                <div class="col" style="flex: 0.5; min-width: 100px;">
-                    <label>Pincode (पिनकोड)</label>
-                    <input type="text" id="toPincode" placeholder="Pincode">
-                </div>
+
+            <div class="data-box">
+
+                <b>Phone</b>
+
+                <br>
+
+                ${data.phone}
+
             </div>
-            <div style="margin-top: 10px;">
-                <button class="btn-primary" id="saveBtn" onclick="saveCustomerData()">Save Party</button>
-                <button class="btn-danger" id="cancelEditBtn" onclick="resetForm()" style="display:none;">Clear Form</button>
-            </div>
-            
-            <!-- LIVE SEARCH BOX TERMINAL -->
-            <div class="search-container">
-                <label style="color: #b45309; font-size: 14px; font-weight: bold;">🔍 Live Search & Auto-Fill Form Terminal</label>
-                <input type="text" id="searchBox" class="search-input" placeholder="Type letters/numbers to fill form instantly..." oninput="handleLiveSearchAndAutofill()">
-            </div>
-            
-            <!-- UI Action Buttons -->
-            <div class="btn-group">
-                <button class="btn-success" onclick="executeCurrentPrint()">🖨️ Print Current Label Now</button>
-                <button class="btn-danger" onclick="clearAllLabels()">Clear Database</button>
-            </div>
+
         </div>
 
-        <!-- HISTORY PANEL -->
-        <div class="history-panel">
-            <div class="section-title" style="color: #10b981;">📋 Customer Database History Cluster</div>
-            <div class="history-table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 5%;">Sr.</th>
-                            <th style="width: 25%;">Customer Name</th>
-                            <th style="width: 35%;">Address</th>
-                            <th style="width: 15%;">Mobile</th>
-                            <th style="width: 10%;">Boxes</th>
-                            <th style="width: 10%;">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="historyTableBody">
-                        <!-- Dynamic Rows Will Load Here -->
-                    </tbody>
-                </table>
-            </div>
+        <div class="label-footer">
+
+            <b>From:</b>
+
+            ${fName}
+
+            <br>
+
+            ${fPhone}
+
+            <br>
+
+            ${fAddr}
+
         </div>
+        `;
 
-    </div>
+        printContainer.appendChild(label);
+    }
 
-    <!-- Sticker Container Placeholder for Print Mode -->
-    <div id="printAreaContainer"></div>
+    window.print();
+}
 
-    <!-- ==========================================================================
-         OFFLINE HARDWARE & TIME ENCRYPTION ENGINE LOGIC (JAVASCRIPT)
-         ========================================================================== -->
-    <script>
-        // --- 1. HARDWARE KEY GENERATOR ---
-        function getPCFingerprint() {
-            const displayMatrix = window.screen.width + "x" + window.screen.height + "@" + window.screen.colorDepth;
-            const frameworkLang = navigator.language || "en-US";
-            const logicalCPUThreads = navigator.hardwareConcurrency || 4; 
-            return btoa(displayMatrix + "|" + frameworkLang + "|" + logicalCPUThreads).substring(0, 15);
-        }
-        const machineKey = getPCFingerprint();
+</script>
 
-        // --- 2. LICENSE VALIDITY CHECKER ---
-        function getDaysRemaining() {
-            const expStr = localStorage.getItem('ship_expiry'); // Format: EXP-YYYYMMDD
-            if (!expStr || !expStr.startsWith('EXP-')) return 0;
-            
-            const datePart = expStr.split('-')[1];
-            if (datePart.length !== 8) return 0;
-
-            const year = parseInt(datePart.substring(0, 4));
-            const month = parseInt(datePart.substring(4, 6)) - 1;
-            const day = parseInt(datePart.substring(6, 8));
-
-            const expiryDate = new Date(year, month, day, 23, 59, 59);
-            const today = new Date();
-
-            const diffTime = expiryDate - today;
-            return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        }
-
-        // --- 3. PAGE BOOT AUTH MANAGER ---
-        window.onload = function() {
-            loadSenderInfo();
-            loadHistoryTable();
-
-            const admin = localStorage.getItem('ship_uid');
-            const pckey = localStorage.getItem('ship_key');
-            const daysLeft = getDaysRemaining();
-            
-            if (!admin) {
-                document.getElementById('lockSetup').classList.remove('lock-hidden');
-            } else if (pckey !== machineKey) {
-                showBlockScreen("Hardware Mismatch", "Security Protocol: Profile Change Detected. File copy strictly blocked.");
-            } else if (daysLeft <= 0) {
-                showBlockScreen("License Expired!", "Aapke software ki validity poori ho chuki hai. Kripya developer se contact karke naya license update karwayein.");
-            } else {
-                document.getElementById('daysDisplay').innerText = `License Valid: Only ${daysLeft} days remaining.`;
-                document.getElementById('lockLogin').classList.remove('lock-hidden');
-            }
-        }
-
-        function showBlockScreen(title, desc) {
-            document.getElementById('lockSetup').classList.add('lock-hidden');
-            document.getElementById('lockLogin').classList.add('lock-hidden');
-            document.getElementById('lockBlocked').classList.remove('lock-hidden');
-            document.getElementById('blockTitle').innerText = title;
-            document.getElementById('blockDesc').innerText = desc;
-        }
-
-        // --- 4. CONFIG INITIAL SIGNUP WIZARD ---
-        function setupMyPC() {
-            const u = document.getElementById('setUid').value.trim();
-            const p = document.getElementById('setPwd').value.trim();
-            const lic = document.getElementById('setLic').value.trim().toUpperCase();
-
-            if(!u || !p || !lic) {
-                alert("Critical Mismatch: Saari details daalna zaroori hai!");
-                return;
-            }
-
-            if(!lic.startsWith("EXP-") || lic.length !== 12) {
-                alert("Galat Activation Key! Format sahi dalein: EXP-YYYYMMDD (Misaal: EXP-20270516)");
-                return;
-            }
-
-            localStorage.setItem('ship_uid', u);
-            localStorage.setItem('ship_pwd', p);
-            localStorage.setItem('ship_expiry', lic);
-            localStorage.setItem('ship_key', machineKey);
-
-            alert("System Initialized! Software registered and successfully locked to this PC.");
-            location.reload();
-        }
-
-        // --- 5. AUTHENTICATION & MASTER BYPASS ENGINE ---
-        function loginMyPC() {
-            const u = document.getElementById('logUid').value.trim();
-            const p = document.getElementById('logPwd').value.trim();
-            
-            // EMERGENCY SYSTEM BACKDOOR OVERRIDE RESET KEY
-            if (p === "RESET@9988#") {
-                localStorage.removeItem('ship_uid');
-                localStorage.removeItem('ship_pwd');
-                localStorage.removeItem('ship_key');
-                localStorage.removeItem('ship_expiry');
-                alert("Master Reset Protocol Success! All access layers wiped out cleanly.");
-                location.reload();
-                return;
-            }
-
-            const daysLeft = getDaysRemaining();
-            if (daysLeft <= 0) {
-                alert("Error: Software Validity Time Expired!");
-                location.reload();
-                return;
-            }
-
-            if (u === localStorage.getItem('ship_uid') && p === localStorage.getItem('ship_pwd')) {
-                document.getElementById('lockLogin').classList.add('lock-hidden');
-                document.getElementById('shippingSystemMaster').classList.remove('lock-hidden');
-            } else {
-                document.getElementById('logErr').innerText = "Galat User ID ya Password sequence!";
-            }
-        }
-
-        // --- 6. CORE APP INTERFACE CODES ---
-        function toggleSetupPanel() {
-            const panel = document.getElementById('setupPanel');
-            panel.style.display = (panel.style.display === 'none') ? 'block' : 'none';
-        }
-
-        function saveSenderInfo() {
-            localStorage.setItem('ship_fromName', document.getElementById('fromName').value.trim());
-            localStorage.setItem('ship_fromPhone', document.getElementById('fromPhone').value.trim());
-            localStorage.setItem('ship_fromAddress', document.getElementById('fromAddress').value.trim());
-            localStorage.setItem('ship_securityPin', document.getElementById('appSecurityPin').value.trim());
-            alert("Sender settings saved successfully!");
-            toggleSetupPanel();
-        }
-
-        function loadSenderInfo() {
-            document.getElementById('fromName').value = localStorage.getItem('ship_fromName') || '';
-            document.getElementById('fromPhone').value = localStorage.getItem('ship_fromPhone') || '';
-            document.getElementById('fromAddress').value = localStorage.getItem('ship_fromAddress') || '';
-            document.getElementById('appSecurityPin').value = localStorage.getItem('ship_securityPin') || '1234';
-        }
-
-        function getDatabase() {
-            return JSON.parse(localStorage.getItem('shipping_db')) || [];
-        }
-
-        function saveDatabase(db) {
-            localStorage.setItem('shipping_db', JSON.stringify(db));
-        }
-
-        function loadHistoryTable() {
-            const db = getDatabase();
-            const tbody = document.getElementById('historyTableBody');
-            tbody.innerHTML = '';
-            
-            if(db.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#94a3b8;">No records found in cluster storage.</td></tr>`;
-                return;
-            }
-
-            db.forEach((item, index) => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td><b>${item.name}</b></td>
-                    <td>${item.address} ${item.pincode ? '- ' + item.pincode : ''}</td>
-                    <td>${item.phone}</td>
-                    <td><span style="background:#10b981;color:white;padding:3px 7px;border-radius:4px;font-weight:bold;">${item.boxes}</span></td>
-                    <td>
-                        <button class="btn-edit" onclick="editRecord(${index})">Edit</button>
-                        <button class="btn-delete" onclick="deleteRecord(${index})">Delete</button>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function saveCustomerData() {
-            const name = document.getElementById('toName').value.trim();
-            const phone = document.getElementById('toPhone').value.trim();
-            const boxes = document.getElementById('toBoxes').value.trim();
-            const address = document.getElementById('toAddress').value.trim();
-            const locationName = document.getElementById('toShortLocation').value.trim();
-            const pincode = document.getElementById('toPincode').value.trim();
-            const editIdx = parseInt(document.getElementById('editIndex').value);
-
-            if(!name || !address) {
-                alert("Customer Name aur Address fields fill karna compulsory hai!");
-                return;
-            }
-
-            let db = getDatabase();
-            const dataObj = { name, phone, boxes, address, locationName, pincode };
-
-            if(editIdx > -1) {
-                db[editIdx] = dataObj;
-                document.getElementById('editIndex').value = "-1";
-                document.getElementById('saveBtn').innerText = "Save Party";
-                document.getElementById('cancelEditBtn').style.display = "none";
-                document.getElementById('formActionTitle').innerText = "🔹 Customer Entry Form";
-                document.getElementById('formActionTitle').style.color = "#0284c7";
-            } else {
-                db.push(dataObj);
-            }
-
-            saveDatabase(db);
-            resetForm();
-            loadHistoryTable();
-            alert("Customer entry logs synchronized successfully!");
-        }
-
-        function editRecord(index) {
-            const db = getDatabase();
-            const item = db[index];
-
-            document.getElementById('toName').value = item.name;
-            document.getElementById('toPhone').value = item.phone;
-            document.getElementById('toBoxes').value = item.boxes;
-            document.getElementById('toAddress').value = item.address;
-            document.getElementById('toShortLocation').value = item.locationName;
-            document.getElementById('toPincode').value = item.pincode;
-            
-            document.getElementById('editIndex').value = index;
-            document.getElementById('saveBtn').innerText = "Update Records";
-            document.getElementById('cancelEditBtn').style.display = "inline-block";
-            
-            document.getElementById('formActionTitle').innerText = "⚠️ Editing Stored Mode Active";
-            document.getElementById('formActionTitle').style.color = "#d97706";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function deleteRecord(index) {
-            if(!confirm("Kya aap sach me is entry record ko database se remove karna chahte hain?")) return;
-            let db = getDatabase();
-            db.splice(index, 1);
-            saveDatabase(db);
-            loadHistoryTable();
-        }
-
-        function resetForm() {
-            document.getElementById('toName').value = '';
-            document.getElementById('toPhone').value = '';
-            document.getElementById('toBoxes').value = '1';
-            document.getElementById('toAddress').value = '';
-            document.getElementById('toShortLocation').value = '';
-            document.getElementById('toPincode').value = '';
-            document.getElementById('editIndex').value = "-1";
-            document.getElementById('saveBtn').innerText = "Save Party";
-            document.getElementById('cancelEditBtn').style.display = "none";
-            document.getElementById('formActionTitle').innerText = "🔹 Customer Entry Form";
-            document.getElementById('formActionTitle').style.color = "#0284c7";
-        }
-
-        function handleLiveSearchAndAutofill() {
-            const query = document.getElementById('searchBox').value.toLowerCase().trim();
-            if(!query) return;
-
-            const db = getDatabase();
-            const match = db.find(item => item.name.toLowerCase().includes(query) || item.phone.includes(query));
-
-            if(match) {
-                document.getElementById('toName').value = match.name;
-                document.getElementById('toPhone').value = match.phone;
-                document.getElementById('toAddress').value = match.address;
-                document.getElementById('toShortLocation').value = match.locationName;
-                document.getElementById('toPincode').value = match.pincode;
-            }
-        }
-
-        function executeCurrentPrint() {
-            const name = document.getElementById('toName').value.trim();
-            const phone = document.getElementById('toPhone').value.trim();
-            const boxes = parseInt(document.getElementById('toBoxes').value) || 1;
-            const address = document.getElementById('toAddress').value.trim();
-            const loc = document.getElementById('toShortLocation').value.trim();
-            const pin = document.getElementById('toPincode').value.trim();
-
-            if(!name || !address) {
-                alert("Print karne ke liye form par valid Customer Name aur Address hona mandatory hai!");
-                return;
-            }
-
-            const fName = localStorage.getItem('ship_fromName') || 'Your Business Name';
-            const fPhone = localStorage.getItem('ship_fromPhone') || '';
-            const fAddr = localStorage.getItem('ship_fromAddress') || '';
-
-            const printContainer = document.getElementById('printAreaContainer');
-            printContainer.innerHTML = '';
-
-            for(let i = 1; i <= boxes; i++) {
-                const label = document.createElement('div');
-                label.className = 'shipping-label';
-                label.innerHTML = `
-                    <div class="label-header">
-                        <div class="title">SHIPPING LABEL</div>
-                        <div class="box-count-badge">BOX: ${i} / ${boxes}</div>
-                    </div>
-                    <div class="label-body">
-                        <div class="customer-section">
-                            <div class="address-split-container">
-                                <div class="address-left-block">
-                                    <div class="field-group">
-                                        <div class="field-label">To (पार्टी का नाम):</div>
-                                        <div class="field-value cust-name">${name}</div>
-                                    </div>
-                                    <div class="field-group">
-                                        <div class="field-label">Shipping Address:</div>
-                                        <div class="field-value">${address}</div>
-                                    </div>
-                                </div>
-                                <div class="destination-right-block">
-                                    ${loc ? `<b>${loc}</b>` : ''}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="important-data">
-                            <div class="data-box pincode-box">
-                                <div class="field-label" style="text-align:center;">Pincode</div>
-                                <div class="field-value">${pin || '------'}</div>
-                            </div>
-                            <div class="data-box phone-box">
-                                <div class="field-label" style="text-align:center;">Contact Number</div>
-                                <div class="field-value">${phone || '----------'}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="label-footer">
-                        <b>From:</b> ${fName} ${fPhone ? '| Mo: ' + fPhone : ''} <br>
-                        <span style="font-size:9.5px; opacity:0.9;">${fAddr}</span>
-                    </div>
-                `;
-                printContainer.appendChild(label);
-            }
-            window.print();
-        }
-
-        function clearAllLabels() {
-            if(!confirm("Warning! Database ke saare customer records permanently delete ho jayenge?")) return;
-            localStorage.removeItem('shipping_db');
-            loadHistoryTable();
-            resetForm();
-        }
-    </script>
 </body>
 </html>
